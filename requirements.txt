@@ -1,0 +1,5 @@
+google-adk
+mcp
+python-dotenv 
+mysql-connector-python
+google-generativeai

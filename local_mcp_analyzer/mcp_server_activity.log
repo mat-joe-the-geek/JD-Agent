@@ -1,0 +1,864 @@
+2025-07-27 20:16:22,289 - INFO - [server.py:44] - Generative AI configured successfully.
+2025-07-27 20:16:22,289 - INFO - [server.py:307] - Creating MCP Server instance for SQLite DB...
+2025-07-27 20:16:22,289 - DEBUG - [server.py:154] - Initializing server 'sqlite-db-mcp-server'
+2025-07-27 20:16:22,290 - DEBUG - [server.py:386] - Registering handler for ListToolsRequest
+2025-07-27 20:16:22,290 - DEBUG - [server.py:447] - Registering handler for CallToolRequest
+2025-07-27 20:16:22,290 - INFO - [server.py:393] - Launching SQLite DB MCP Server via stdio...
+2025-07-27 20:16:22,290 - DEBUG - [selector_events.py:64] - Using selector: EpollSelector
+2025-07-27 20:16:22,294 - INFO - [server.py:376] - MCP Stdio Server: Starting handshake with client...
+2025-07-27 20:16:22,302 - DEBUG - [server.py:588] - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2025-07-27 20:16:22,304 - DEBUG - [server.py:588] - Received message: <mcp.shared.session.RequestResponder object at 0x765436b8ff80>
+2025-07-27 20:16:22,305 - INFO - [server.py:625] - Processing request of type ListToolsRequest
+2025-07-27 20:16:22,305 - DEBUG - [server.py:627] - Dispatching request of type ListToolsRequest
+2025-07-27 20:16:22,305 - INFO - [server.py:321] - MCP Server: Received list_tools request.
+2025-07-27 20:16:22,306 - INFO - [server.py:328] - MCP Server: Advertising tool: query_db_table, InputSchema: {'type': 'object', 'properties': {'table_name': {'type': 'string'}, 'columns': {'type': 'string', 'default': '*'}, 'condition': {'type': 'string', 'default': '1=1'}}, 'required': ['table_name']}
+2025-07-27 20:16:22,307 - INFO - [server.py:328] - MCP Server: Advertising tool: classify_and_transfer_candidates, InputSchema: {'type': 'object', 'properties': {'candidates_data': {'type': 'array', 'items': {'type': 'object'}}}, 'required': ['candidates_data']}
+2025-07-27 20:16:22,308 - INFO - [server.py:328] - MCP Server: Advertising tool: get_table_schema, InputSchema: {'type': 'object', 'properties': {'table_name': {'type': 'string'}}, 'required': ['table_name']}
+2025-07-27 20:16:22,310 - DEBUG - [server.py:668] - Response sent
+2025-07-27 20:16:25,939 - DEBUG - [server.py:588] - Received message: <mcp.shared.session.RequestResponder object at 0x765436b8fb30>
+2025-07-27 20:16:25,939 - INFO - [server.py:625] - Processing request of type CallToolRequest
+2025-07-27 20:16:25,939 - DEBUG - [server.py:627] - Dispatching request of type CallToolRequest
+2025-07-27 20:16:25,943 - INFO - [server.py:336] - MCP Server: Received call_tool request for 'query_db_table' with args: {'table_name': 'candidates', 'columns': '*'}
+2025-07-27 20:16:25,943 - INFO - [server.py:111] - Executing query_db_table: SELECT * FROM candidates;
+2025-07-27 20:16:25,944 - INFO - [server.py:114] - Query returned 20 rows from 'candidates'.
+2025-07-27 20:16:25,945 - INFO - [server.py:349] - MCP Server: ADK tool 'query_db_table' executed. Response: [{'id': 1, 'name': 'Alice Johnson', 'email': 'alice.j@example.com', 'phone': '555-1001', 'current_role': 'Senior Software Engineer', 'experience_years': 8, 'skills': 'Python, Java, AWS, Docker, Microservices, Agile', 'education': 'M.Sc. Computer Science', 'location': 'San Francisco', 'linkedin_profile': 'linkedin.com/in/alicej', 'last_updated': '2025-07-20'}, {'id': 2, 'name': 'Bob Williams', 'email': 'bob.w@example.com', 'phone': '555-1002', 'current_role': 'IT Support Specialist', 'experience_years': 3, 'skills': 'Troubleshooting, Network Support, Windows Server, Help Desk', 'education': 'CompTIA A+', 'location': 'New York', 'linkedin_profile': 'linkedin.com/in/bobw', 'last_updated': '2025-07-19'}, {'id': 3, 'name': 'Charlie Brown', 'email': 'charlie.b@example.com', 'phone': '555-1003', 'current_role': 'Financial Analyst', 'experience_years': 6, 'skills': 'Financial Modeling, Valuation, Excel, Bloomberg, Risk Management', 'education': 'MBA Finance', 'location': 'London', 'linkedin_profile': 'linkedin.com/in/charlieb', 'last_updated': '2025-07-21'}, {'id': 4, 'name': 'Diana Prince', 'email': 'diana.p@example.com', 'phone': '555-1004', 'current_role': 'Claims Adjuster', 'experience_years': 4, 'skills': 'Claims Processing, Customer Service, Policy Analysis', 'education': 'B.A. Business Admin', 'location': 'Chicago', 'linkedin_profile': 'linkedin.com/in/dianap', 'last_updated': '2025-07-18'}, {'id': 5, 'name': 'Eve Davis', 'email': 'eve.d@example.com', 'phone': '555-1005', 'current_role': 'Registered Nurse', 'experience_years': 10, 'skills': 'Patient Care, ICU, EMR, Critical Care', 'education': 'B.Sc. Nursing', 'location': 'Los Angeles', 'linkedin_profile': 'linkedin.com/in/eved', 'last_updated': '2025-07-22'}, {'id': 6, 'name': 'Frank White', 'email': 'frank.w@example.com', 'phone': '555-1006', 'current_role': 'Full Stack Developer', 'experience_years': 5, 'skills': 'JavaScript, React, Node.js, MongoDB, REST APIs', 'education': 'B.Eng. Software', 'location': 'Seattle', 'linkedin_profile': 'linkedin.com/in/frankw', 'last_updated': '2025-07-17'}, {'id': 7, 'name': 'Grace Lee', 'email': 'grace.l@example.com', 'phone': '555-1007', 'current_role': 'Network Administrator', 'experience_years': 7, 'skills': 'Cisco, Linux, Cybersecurity, Cloud Networking', 'education': 'CCNA', 'location': 'Dallas', 'linkedin_profile': 'linkedin.com/in/gracel', 'last_updated': '2025-07-20'}, {'id': 8, 'name': 'Henry Green', 'email': 'henry.g@example.com', 'phone': '555-1008', 'current_role': 'Investment Banker', 'experience_years': 12, 'skills': 'M&A, Corporate Finance, Due Diligence, Capital Markets', 'education': 'MBA Finance', 'location': 'New York', 'linkedin_profile': 'linkedin.com/in/henryg', 'last_updated': '2025-07-21'}, {'id': 9, 'name': 'Ivy Chen', 'email': 'ivy.c@example.com', 'phone': '555-1009', 'current_role': 'Actuarial Analyst', 'experience_years': 2, 'skills': 'Statistical Modeling, R, Excel, Risk Assessment', 'education': 'M.Sc. Actuarial Science', 'location': 'Boston', 'linkedin_profile': 'linkedin.com/in/ivyc', 'last_updated': '2025-07-19'}, {'id': 10, 'name': 'Jack Miller', 'email': 'jack.m@example.com', 'phone': '555-1010', 'current_role': 'Physical Therapist', 'experience_years': 7, 'skills': 'Rehabilitation, Orthopedics, Patient Education', 'education': 'DPT Physical Therapy', 'location': 'Miami', 'linkedin_profile': 'linkedin.com/in/jackm', 'last_updated': '2025-07-18'}, {'id': 11, 'name': 'Karen Taylor', 'email': 'karen.t@example.com', 'phone': '555-1011', 'current_role': 'Travel Consultant', 'experience_years': 9, 'skills': 'Destination Planning, Booking Systems, Customer Relations', 'education': 'B.A. Hospitality', 'location': 'Orlando', 'linkedin_profile': 'linkedin.com/in/karent', 'last_updated': '2025-07-22'}, {'id': 12, 'name': 'Liam Hall', 'email': 'liam.h@example.com', 'phone': '555-1012', 'current_role': 'Real Estate Agent', 'experience_years': 4, 'skills': 'Property Sales, Negotiation, Market Analysis, CRM', 'education': 'Real Estate License', 'location': 'Houston', 'linkedin_profile': 'linkedin.com/in/liamh', 'last_updated': '2025-07-20'}, {'id': 13, 'name': 'Mia Kim', 'email': 'mia.k@example.com', 'phone': '555-1013', 'current_role': 'DevOps Engineer', 'experience_years': 6, 'skills': 'Kubernetes, Jenkins, Terraform, CI/CD, Azure', 'education': 'B.Sc. Computer Engineering', 'location': 'Austin', 'linkedin_profile': 'linkedin.com/in/miak', 'last_updated': '2025-07-17'}, {'id': 14, 'name': 'Noah Scott', 'email': 'noah.s@example.com', 'phone': '555-1014', 'current_role': 'Cybersecurity Analyst', 'experience_years': 5, 'skills': 'SIEM, Incident Response, Penetration Testing, Firewalls', 'education': 'CompTIA Security+', 'location': 'Washington D.C.', 'linkedin_profile': 'linkedin.com/in/noahs', 'last_updated': '2025-07-21'}, {'id': 15, 'name': 'Olivia King', 'email': 'olivia.k@example.com', 'phone': '555-1015', 'current_role': 'Retail Banker', 'experience_years': 3, 'skills': 'Customer Service, Loan Origination, Teller Operations', 'education': 'B.A. Economics', 'location': 'Denver', 'linkedin_profile': 'linkedin.com/in/oliviak', 'last_updated': '2025-07-19'}, {'id': 16, 'name': 'Peter Wright', 'email': 'peter.w@example.com', 'phone': '555-1016', 'current_role': 'Underwriter', 'experience_years': 8, 'skills': 'Risk Assessment, Policy Underwriting, Financial Analysis', 'education': 'B.Sc. Finance', 'location': 'Phoenix', 'linkedin_profile': 'linkedin.com/in/peterw', 'last_updated': '2025-07-18'}, {'id': 17, 'name': 'Quinn Clark', 'email': 'quinn.c@example.com', 'phone': '555-1017', 'current_role': 'Medical Coder', 'experience_years': 5, 'skills': 'ICD-10, CPT, Medical Billing, HIPAA', 'education': 'A.S. Health Information', 'location': 'Atlanta', 'linkedin_profile': 'linkedin.com/in/quinnc', 'last_updated': '2025-07-22'}, {'id': 18, 'name': 'Rachel Lewis', 'email': 'rachel.l@example.com', 'phone': '555-1018', 'current_role': 'Hotel Manager', 'experience_years': 10, 'skills': 'Operations Management, Staff Training, Guest Relations', 'education': 'M.Sc. Hotel Management', 'location': 'Las Vegas', 'linkedin_profile': 'linkedin.com/in/rachell', 'last_updated': '2025-07-20'}, {'id': 19, 'name': 'Sam Baker', 'email': 'sam.b@example.com', 'phone': '555-1019', 'current_role': 'Property Manager', 'experience_years': 6, 'skills': 'Leasing, Maintenance Coordination, Tenant Relations', 'education': 'B.A. Business', 'location': 'Charlotte', 'linkedin_profile': 'linkedin.com/in/samb', 'last_updated': '2025-07-17'}, {'id': 20, 'name': 'Tina Green', 'email': 'tina.g@example.com', 'phone': '555-1020', 'current_role': 'Data Scientist', 'experience_years': 4, 'skills': 'Machine Learning, Python, R, SQL, Data Visualization', 'education': 'Ph.D. Statistics', 'location': 'Boston', 'linkedin_profile': 'linkedin.com/in/tinag', 'last_updated': '2025-07-21'}]
+2025-07-27 20:16:25,946 - DEBUG - [server.py:668] - Response sent
+2025-07-27 20:16:25,957 - DEBUG - [server.py:588] - Received message: <mcp.shared.session.RequestResponder object at 0x765436b8fa40>
+2025-07-27 20:16:25,957 - INFO - [server.py:625] - Processing request of type ListToolsRequest
+2025-07-27 20:16:25,957 - DEBUG - [server.py:627] - Dispatching request of type ListToolsRequest
+2025-07-27 20:16:25,957 - INFO - [server.py:321] - MCP Server: Received list_tools request.
+2025-07-27 20:16:25,958 - INFO - [server.py:328] - MCP Server: Advertising tool: query_db_table, InputSchema: {'type': 'object', 'properties': {'table_name': {'type': 'string'}, 'columns': {'type': 'string', 'default': '*'}, 'condition': {'type': 'string', 'default': '1=1'}}, 'required': ['table_name']}
+2025-07-27 20:16:25,960 - INFO - [server.py:328] - MCP Server: Advertising tool: classify_and_transfer_candidates, InputSchema: {'type': 'object', 'properties': {'candidates_data': {'type': 'array', 'items': {'type': 'object'}}}, 'required': ['candidates_data']}
+2025-07-27 20:16:25,961 - INFO - [server.py:328] - MCP Server: Advertising tool: get_table_schema, InputSchema: {'type': 'object', 'properties': {'table_name': {'type': 'string'}}, 'required': ['table_name']}
+2025-07-27 20:16:25,961 - DEBUG - [server.py:668] - Response sent
+2025-07-27 20:16:40,480 - DEBUG - [server.py:588] - Received message: <mcp.shared.session.RequestResponder object at 0x765436b8fb90>
+2025-07-27 20:16:40,481 - INFO - [server.py:625] - Processing request of type CallToolRequest
+2025-07-27 20:16:40,481 - DEBUG - [server.py:627] - Dispatching request of type CallToolRequest
+2025-07-27 20:16:40,484 - INFO - [server.py:336] - MCP Server: Received call_tool request for 'classify_and_transfer_candidates' with args: {'candidates_data': [{'id': 1, 'linkedin_profile': 'linkedin.com/in/alicej', 'email': 'alice.j@example.com', 'last_updated': '2025-07-20', 'name': 'Alice Johnson', 'current_role': 'Senior Software Engineer', 'education': 'M.Sc. Computer Science', 'skills': 'Python, Java, AWS, Docker, Microservices, Agile', 'location': 'San Francisco', 'experience_years': 8, 'phone': '555-1001'}, {'skills': 'Troubleshooting, Network Support, Windows Server, Help Desk', 'education': 'CompTIA A+', 'current_role': 'IT Support Specialist', 'id': 2, 'location': 'New York', 'name': 'Bob Williams', 'email': 'bob.w@example.com', 'last_updated': '2025-07-19', 'linkedin_profile': 'linkedin.com/in/bobw', 'experience_years': 3, 'phone': '555-1002'}, {'email': 'charlie.b@example.com', 'phone': '555-1003', 'skills': 'Financial Modeling, Valuation, Excel, Bloomberg, Risk Management', 'last_updated': '2025-07-21', 'current_role': 'Financial Analyst', 'education': 'MBA Finance', 'experience_years': 6, 'id': 3, 'location': 'London', 'linkedin_profile': 'linkedin.com/in/charlieb', 'name': 'Charlie Brown'}, {'phone': '555-1004', 'last_updated': '2025-07-18', 'location': 'Chicago', 'linkedin_profile': 'linkedin.com/in/dianap', 'experience_years': 4, 'education': 'B.A. Business Admin', 'email': 'diana.p@example.com', 'skills': 'Claims Processing, Customer Service, Policy Analysis', 'id': 4, 'current_role': 'Claims Adjuster', 'name': 'Diana Prince'}, {'id': 5, 'last_updated': '2025-07-22', 'current_role': 'Registered Nurse', 'email': 'eve.d@example.com', 'experience_years': 10, 'location': 'Los Angeles', 'name': 'Eve Davis', 'phone': '555-1005', 'linkedin_profile': 'linkedin.com/in/eved', 'education': 'B.Sc. Nursing', 'skills': 'Patient Care, ICU, EMR, Critical Care'}, {'name': 'Frank White', 'email': 'frank.w@example.com', 'current_role': 'Full Stack Developer', 'last_updated': '2025-07-17', 'location': 'Seattle', 'skills': 'JavaScript, React, Node.js, MongoDB, REST APIs', 'linkedin_profile': 'linkedin.com/in/frankw', 'phone': '555-1006', 'education': 'B.Eng. Software', 'id': 6, 'experience_years': 5}, {'location': 'Dallas', 'last_updated': '2025-07-20', 'name': 'Grace Lee', 'experience_years': 7, 'education': 'CCNA', 'phone': '555-1007', 'id': 7, 'current_role': 'Network Administrator', 'email': 'grace.l@example.com', 'linkedin_profile': 'linkedin.com/in/gracel', 'skills': 'Cisco, Linux, Cybersecurity, Cloud Networking'}, {'last_updated': '2025-07-21', 'linkedin_profile': 'linkedin.com/in/henryg', 'name': 'Henry Green', 'skills': 'M&A, Corporate Finance, Due Diligence, Capital Markets', 'id': 8, 'email': 'henry.g@example.com', 'experience_years': 12, 'current_role': 'Investment Banker', 'phone': '555-1008', 'location': 'New York', 'education': 'MBA Finance'}, {'phone': '555-1009', 'skills': 'Statistical Modeling, R, Excel, Risk Assessment', 'last_updated': '2025-07-19', 'current_role': 'Actuarial Analyst', 'email': 'ivy.c@example.com', 'location': 'Boston', 'education': 'M.Sc. Actuarial Science', 'experience_years': 2, 'name': 'Ivy Chen', 'linkedin_profile': 'linkedin.com/in/ivyc', 'id': 9}, {'name': 'Jack Miller', 'phone': '555-1010', 'experience_years': 7, 'skills': 'Rehabilitation, Orthopedics, Patient Education', 'email': 'jack.m@example.com', 'id': 10, 'linkedin_profile': 'linkedin.com/in/jackm', 'current_role': 'Physical Therapist', 'location': 'Miami', 'education': 'DPT Physical Therapy', 'last_updated': '2025-07-18'}, {'education': 'B.A. Hospitality', 'location': 'Orlando', 'skills': 'Destination Planning, Booking Systems, Customer Relations', 'current_role': 'Travel Consultant', 'phone': '555-1011', 'experience_years': 9, 'id': 11, 'email': 'karen.t@example.com', 'name': 'Karen Taylor', 'last_updated': '2025-07-22', 'linkedin_profile': 'linkedin.com/in/karent'}, {'name': 'Liam Hall', 'experience_years': 4, 'phone': '555-1012', 'current_role': 'Real Estate Agent', 'education': 'Real Estate License', 'last_updated': '2025-07-20', 'location': 'Houston', 'linkedin_profile': 'linkedin.com/in/liamh', 'email': 'liam.h@example.com', 'id': 12, 'skills': 'Property Sales, Negotiation, Market Analysis, CRM'}, {'education': 'B.Sc. Computer Engineering', 'skills': 'Kubernetes, Jenkins, Terraform, CI/CD, Azure', 'experience_years': 6, 'last_updated': '2025-07-17', 'name': 'Mia Kim', 'id': 13, 'linkedin_profile': 'linkedin.com/in/miak', 'phone': '555-1013', 'email': 'mia.k@example.com', 'current_role': 'DevOps Engineer', 'location': 'Austin'}, {'skills': 'SIEM, Incident Response, Penetration Testing, Firewalls', 'phone': '555-1014', 'id': 14, 'experience_years': 5, 'location': 'Washington D.C.', 'name': 'Noah Scott', 'email': 'noah.s@example.com', 'last_updated': '2025-07-21', 'linkedin_profile': 'linkedin.com/in/noahs', 'current_role': 'Cybersecurity Analyst', 'education': 'CompTIA Security+'}, {'location': 'Denver', 'last_updated': '2025-07-19', 'name': 'Olivia King', 'phone': '555-1015', 'experience_years': 3, 'current_role': 'Retail Banker', 'id': 15, 'email': 'olivia.k@example.com', 'linkedin_profile': 'linkedin.com/in/oliviak', 'skills': 'Customer Service, Loan Origination, Teller Operations', 'education': 'B.A. Economics'}, {'name': 'Peter Wright', 'last_updated': '2025-07-18', 'experience_years': 8, 'linkedin_profile': 'linkedin.com/in/peterw', 'current_role': 'Underwriter', 'id': 16, 'skills': 'Risk Assessment, Policy Underwriting, Financial Analysis', 'phone': '555-1016', 'email': 'peter.w@example.com', 'location': 'Phoenix', 'education': 'B.Sc. Finance'}, {'experience_years': 5, 'current_role': 'Medical Coder', 'location': 'Atlanta', 'skills': 'ICD-10, CPT, Medical Billing, HIPAA', 'last_updated': '2025-07-22', 'id': 17, 'name': 'Quinn Clark', 'education': 'A.S. Health Information', 'phone': '555-1017', 'email': 'quinn.c@example.com', 'linkedin_profile': 'linkedin.com/in/quinnc'}, {'name': 'Rachel Lewis', 'skills': 'Operations Management, Staff Training, Guest Relations', 'current_role': 'Hotel Manager', 'location': 'Las Vegas', 'phone': '555-1018', 'id': 18, 'experience_years': 10, 'email': 'rachel.l@example.com', 'last_updated': '2025-07-20', 'linkedin_profile': 'linkedin.com/in/rachell', 'education': 'M.Sc. Hotel Management'}, {'last_updated': '2025-07-17', 'id': 19, 'email': 'sam.b@example.com', 'phone': '555-1019', 'name': 'Sam Baker', 'skills': 'Leasing, Maintenance Coordination, Tenant Relations', 'location': 'Charlotte', 'linkedin_profile': 'linkedin.com/in/samb', 'experience_years': 6, 'current_role': 'Property Manager', 'education': 'B.A. Business'}, {'id': 20, 'name': 'Tina Green', 'last_updated': '2025-07-21', 'location': 'Boston', 'skills': 'Machine Learning, Python, R, SQL, Data Visualization', 'education': 'Ph.D. Statistics', 'current_role': 'Data Scientist', 'email': 'tina.g@example.com', 'experience_years': 4, 'linkedin_profile': 'linkedin.com/in/tinag', 'phone': '555-1020'}]}
+2025-07-27 20:16:40,485 - INFO - [server.py:191] - Starting AI classification and transfer for 20 candidates...
+2025-07-27 20:16:40,488 - DEBUG - [server.py:206] - Processing candidate ID: 1, Skill: 'Python, Java, AWS, Docker, Microservices, Agile'
+2025-07-27 20:16:40,489 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 1: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Python, Java, AWS, Docker, Microservices, Agile"
+        Category:
+        
+2025-07-27 20:16:40,502 - DEBUG - [_channel.py:368] - Using AsyncIOEngine.POLLER as I/O engine
+2025-07-27 20:16:42,627 - DEBUG - [server.py:226] - LLM raw response for 1: 'Software Development
+'
+2025-07-27 20:16:42,628 - DEBUG - [server.py:227] - Parsed AI classification for 1: 'Software Development'
+2025-07-27 20:16:42,628 - INFO - [server.py:241] - Candidate 1 (Skill: 'Python, Java, AWS, Docker, Microservices, Agile') classified as 'Software Development'.
+2025-07-27 20:16:42,629 - DEBUG - [server.py:206] - Processing candidate ID: 2, Skill: 'Troubleshooting, Network Support, Windows Server, Help Desk'
+2025-07-27 20:16:42,629 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 2: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Troubleshooting, Network Support, Windows Server, Help Desk"
+        Category:
+        
+2025-07-27 20:16:43,344 - DEBUG - [server.py:226] - LLM raw response for 2: 'IT Services
+'
+2025-07-27 20:16:43,344 - DEBUG - [server.py:227] - Parsed AI classification for 2: 'IT Services'
+2025-07-27 20:16:43,344 - INFO - [server.py:241] - Candidate 2 (Skill: 'Troubleshooting, Network Support, Windows Server, Help Desk') classified as 'IT Services'.
+2025-07-27 20:16:43,345 - DEBUG - [server.py:206] - Processing candidate ID: 3, Skill: 'Financial Modeling, Valuation, Excel, Bloomberg, Risk Management'
+2025-07-27 20:16:43,345 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 3: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Financial Modeling, Valuation, Excel, Bloomberg, Risk Management"
+        Category:
+        
+2025-07-27 20:16:44,364 - DEBUG - [server.py:226] - LLM raw response for 3: 'Banking
+'
+2025-07-27 20:16:44,364 - DEBUG - [server.py:227] - Parsed AI classification for 3: 'Banking'
+2025-07-27 20:16:44,364 - INFO - [server.py:241] - Candidate 3 (Skill: 'Financial Modeling, Valuation, Excel, Bloomberg, Risk Management') classified as 'Banking'.
+2025-07-27 20:16:44,365 - DEBUG - [server.py:206] - Processing candidate ID: 4, Skill: 'Claims Processing, Customer Service, Policy Analysis'
+2025-07-27 20:16:44,365 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 4: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Claims Processing, Customer Service, Policy Analysis"
+        Category:
+        
+2025-07-27 20:16:44,974 - DEBUG - [server.py:226] - LLM raw response for 4: 'Insurance
+'
+2025-07-27 20:16:44,974 - DEBUG - [server.py:227] - Parsed AI classification for 4: 'Insurance'
+2025-07-27 20:16:44,974 - INFO - [server.py:241] - Candidate 4 (Skill: 'Claims Processing, Customer Service, Policy Analysis') classified as 'Insurance'.
+2025-07-27 20:16:44,975 - DEBUG - [server.py:206] - Processing candidate ID: 5, Skill: 'Patient Care, ICU, EMR, Critical Care'
+2025-07-27 20:16:44,975 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 5: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Patient Care, ICU, EMR, Critical Care"
+        Category:
+        
+2025-07-27 20:16:45,794 - DEBUG - [server.py:226] - LLM raw response for 5: 'Healthcare
+'
+2025-07-27 20:16:45,794 - DEBUG - [server.py:227] - Parsed AI classification for 5: 'Healthcare'
+2025-07-27 20:16:45,795 - INFO - [server.py:241] - Candidate 5 (Skill: 'Patient Care, ICU, EMR, Critical Care') classified as 'Healthcare'.
+2025-07-27 20:16:45,795 - DEBUG - [server.py:206] - Processing candidate ID: 6, Skill: 'JavaScript, React, Node.js, MongoDB, REST APIs'
+2025-07-27 20:16:45,795 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 6: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "JavaScript, React, Node.js, MongoDB, REST APIs"
+        Category:
+        
+2025-07-27 20:16:46,414 - DEBUG - [server.py:226] - LLM raw response for 6: 'Software Development
+'
+2025-07-27 20:16:46,414 - DEBUG - [server.py:227] - Parsed AI classification for 6: 'Software Development'
+2025-07-27 20:16:46,414 - INFO - [server.py:241] - Candidate 6 (Skill: 'JavaScript, React, Node.js, MongoDB, REST APIs') classified as 'Software Development'.
+2025-07-27 20:16:46,414 - DEBUG - [server.py:206] - Processing candidate ID: 7, Skill: 'Cisco, Linux, Cybersecurity, Cloud Networking'
+2025-07-27 20:16:46,414 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 7: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Cisco, Linux, Cybersecurity, Cloud Networking"
+        Category:
+        
+2025-07-27 20:16:47,435 - DEBUG - [server.py:226] - LLM raw response for 7: 'IT Services
+'
+2025-07-27 20:16:47,435 - DEBUG - [server.py:227] - Parsed AI classification for 7: 'IT Services'
+2025-07-27 20:16:47,435 - INFO - [server.py:241] - Candidate 7 (Skill: 'Cisco, Linux, Cybersecurity, Cloud Networking') classified as 'IT Services'.
+2025-07-27 20:16:47,435 - DEBUG - [server.py:206] - Processing candidate ID: 8, Skill: 'M&A, Corporate Finance, Due Diligence, Capital Markets'
+2025-07-27 20:16:47,435 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 8: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "M&A, Corporate Finance, Due Diligence, Capital Markets"
+        Category:
+        
+2025-07-27 20:16:48,156 - DEBUG - [server.py:226] - LLM raw response for 8: 'Banking
+'
+2025-07-27 20:16:48,156 - DEBUG - [server.py:227] - Parsed AI classification for 8: 'Banking'
+2025-07-27 20:16:48,156 - INFO - [server.py:241] - Candidate 8 (Skill: 'M&A, Corporate Finance, Due Diligence, Capital Markets') classified as 'Banking'.
+2025-07-27 20:16:48,156 - DEBUG - [server.py:206] - Processing candidate ID: 9, Skill: 'Statistical Modeling, R, Excel, Risk Assessment'
+2025-07-27 20:16:48,156 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 9: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Statistical Modeling, R, Excel, Risk Assessment"
+        Category:
+        
+2025-07-27 20:16:49,175 - DEBUG - [server.py:226] - LLM raw response for 9: 'Software Development
+'
+2025-07-27 20:16:49,176 - DEBUG - [server.py:227] - Parsed AI classification for 9: 'Software Development'
+2025-07-27 20:16:49,176 - INFO - [server.py:241] - Candidate 9 (Skill: 'Statistical Modeling, R, Excel, Risk Assessment') classified as 'Software Development'.
+2025-07-27 20:16:49,176 - DEBUG - [server.py:206] - Processing candidate ID: 10, Skill: 'Rehabilitation, Orthopedics, Patient Education'
+2025-07-27 20:16:49,176 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 10: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Rehabilitation, Orthopedics, Patient Education"
+        Category:
+        
+2025-07-27 20:16:49,894 - DEBUG - [server.py:226] - LLM raw response for 10: 'Healthcare
+'
+2025-07-27 20:16:49,894 - DEBUG - [server.py:227] - Parsed AI classification for 10: 'Healthcare'
+2025-07-27 20:16:49,894 - INFO - [server.py:241] - Candidate 10 (Skill: 'Rehabilitation, Orthopedics, Patient Education') classified as 'Healthcare'.
+2025-07-27 20:16:49,894 - DEBUG - [server.py:206] - Processing candidate ID: 11, Skill: 'Destination Planning, Booking Systems, Customer Relations'
+2025-07-27 20:16:49,894 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 11: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Destination Planning, Booking Systems, Customer Relations"
+        Category:
+        
+2025-07-27 20:16:50,774 - DEBUG - [server.py:226] - LLM raw response for 11: 'Travel
+'
+2025-07-27 20:16:50,774 - DEBUG - [server.py:227] - Parsed AI classification for 11: 'Travel'
+2025-07-27 20:16:50,775 - INFO - [server.py:241] - Candidate 11 (Skill: 'Destination Planning, Booking Systems, Customer Relations') classified as 'Travel'.
+2025-07-27 20:16:50,775 - DEBUG - [server.py:206] - Processing candidate ID: 12, Skill: 'Property Sales, Negotiation, Market Analysis, CRM'
+2025-07-27 20:16:50,775 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 12: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Property Sales, Negotiation, Market Analysis, CRM"
+        Category:
+        
+2025-07-27 20:16:51,635 - DEBUG - [server.py:226] - LLM raw response for 12: 'Real Estate
+'
+2025-07-27 20:16:51,635 - DEBUG - [server.py:227] - Parsed AI classification for 12: 'Real Estate'
+2025-07-27 20:16:51,635 - INFO - [server.py:241] - Candidate 12 (Skill: 'Property Sales, Negotiation, Market Analysis, CRM') classified as 'Real Estate'.
+2025-07-27 20:16:51,636 - DEBUG - [server.py:206] - Processing candidate ID: 13, Skill: 'Kubernetes, Jenkins, Terraform, CI/CD, Azure'
+2025-07-27 20:16:51,636 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 13: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Kubernetes, Jenkins, Terraform, CI/CD, Azure"
+        Category:
+        
+2025-07-27 20:16:52,454 - DEBUG - [server.py:226] - LLM raw response for 13: 'Software Development
+'
+2025-07-27 20:16:52,454 - DEBUG - [server.py:227] - Parsed AI classification for 13: 'Software Development'
+2025-07-27 20:16:52,454 - INFO - [server.py:241] - Candidate 13 (Skill: 'Kubernetes, Jenkins, Terraform, CI/CD, Azure') classified as 'Software Development'.
+2025-07-27 20:16:52,454 - DEBUG - [server.py:206] - Processing candidate ID: 14, Skill: 'SIEM, Incident Response, Penetration Testing, Firewalls'
+2025-07-27 20:16:52,455 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 14: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "SIEM, Incident Response, Penetration Testing, Firewalls"
+        Category:
+        
+2025-07-27 20:16:53,376 - DEBUG - [server.py:226] - LLM raw response for 14: 'IT Services
+'
+2025-07-27 20:16:53,376 - DEBUG - [server.py:227] - Parsed AI classification for 14: 'IT Services'
+2025-07-27 20:16:53,376 - INFO - [server.py:241] - Candidate 14 (Skill: 'SIEM, Incident Response, Penetration Testing, Firewalls') classified as 'IT Services'.
+2025-07-27 20:16:53,376 - DEBUG - [server.py:206] - Processing candidate ID: 15, Skill: 'Customer Service, Loan Origination, Teller Operations'
+2025-07-27 20:16:53,379 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 15: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Customer Service, Loan Origination, Teller Operations"
+        Category:
+        
+2025-07-27 20:16:54,195 - DEBUG - [server.py:226] - LLM raw response for 15: 'Banking
+'
+2025-07-27 20:16:54,195 - DEBUG - [server.py:227] - Parsed AI classification for 15: 'Banking'
+2025-07-27 20:16:54,195 - INFO - [server.py:241] - Candidate 15 (Skill: 'Customer Service, Loan Origination, Teller Operations') classified as 'Banking'.
+2025-07-27 20:16:54,195 - DEBUG - [server.py:206] - Processing candidate ID: 16, Skill: 'Risk Assessment, Policy Underwriting, Financial Analysis'
+2025-07-27 20:16:54,195 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 16: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Risk Assessment, Policy Underwriting, Financial Analysis"
+        Category:
+        
+2025-07-27 20:16:55,004 - DEBUG - [server.py:226] - LLM raw response for 16: 'Insurance
+'
+2025-07-27 20:16:55,004 - DEBUG - [server.py:227] - Parsed AI classification for 16: 'Insurance'
+2025-07-27 20:16:55,004 - INFO - [server.py:241] - Candidate 16 (Skill: 'Risk Assessment, Policy Underwriting, Financial Analysis') classified as 'Insurance'.
+2025-07-27 20:16:55,005 - DEBUG - [server.py:206] - Processing candidate ID: 17, Skill: 'ICD-10, CPT, Medical Billing, HIPAA'
+2025-07-27 20:16:55,005 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 17: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "ICD-10, CPT, Medical Billing, HIPAA"
+        Category:
+        
+2025-07-27 20:16:55,936 - DEBUG - [server.py:226] - LLM raw response for 17: 'Healthcare
+'
+2025-07-27 20:16:55,936 - DEBUG - [server.py:227] - Parsed AI classification for 17: 'Healthcare'
+2025-07-27 20:16:55,936 - INFO - [server.py:241] - Candidate 17 (Skill: 'ICD-10, CPT, Medical Billing, HIPAA') classified as 'Healthcare'.
+2025-07-27 20:16:55,936 - DEBUG - [server.py:206] - Processing candidate ID: 18, Skill: 'Operations Management, Staff Training, Guest Relations'
+2025-07-27 20:16:55,936 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 18: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Operations Management, Staff Training, Guest Relations"
+        Category:
+        
+2025-07-27 20:16:56,755 - DEBUG - [server.py:226] - LLM raw response for 18: 'IT Services
+'
+2025-07-27 20:16:56,755 - DEBUG - [server.py:227] - Parsed AI classification for 18: 'IT Services'
+2025-07-27 20:16:56,755 - INFO - [server.py:241] - Candidate 18 (Skill: 'Operations Management, Staff Training, Guest Relations') classified as 'IT Services'.
+2025-07-27 20:16:56,755 - DEBUG - [server.py:206] - Processing candidate ID: 19, Skill: 'Leasing, Maintenance Coordination, Tenant Relations'
+2025-07-27 20:16:56,755 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 19: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Leasing, Maintenance Coordination, Tenant Relations"
+        Category:
+        
+2025-07-27 20:16:57,624 - DEBUG - [server.py:226] - LLM raw response for 19: 'Real Estate
+'
+2025-07-27 20:16:57,624 - DEBUG - [server.py:227] - Parsed AI classification for 19: 'Real Estate'
+2025-07-27 20:16:57,624 - INFO - [server.py:241] - Candidate 19 (Skill: 'Leasing, Maintenance Coordination, Tenant Relations') classified as 'Real Estate'.
+2025-07-27 20:16:57,624 - DEBUG - [server.py:206] - Processing candidate ID: 20, Skill: 'Machine Learning, Python, R, SQL, Data Visualization'
+2025-07-27 20:16:57,624 - DEBUG - [server.py:215] - Sending prompt to LLM for candidate 20: 
+
+        You are an expert in classifying professional skills into industry categories.
+        Your task is to classify the provided candidate's skill description into the SINGLE BEST category from the following precise categories:
+        Software Development, IT Services, Banking, Insurance, Healthcare, Travel, Real Estate.
+
+        You MUST choose one of the categories provided. Do NOT return 'Unclassified' or any other category not explicitly listed.
+
+        Return ONLY the exact category name. Do NOT include any other words, punctuation, explanations, or conversational filler.
+        Ensure your response is ONLY one of the specified category names.
+
+        Examples:
+        Candidate Skill: "Python, Django, SQL, Cloud Architecture"
+        Category: Software Development
+
+        Candidate Skill: "IT Support, Network Troubleshooting, Helpdesk, VoIP"
+        Category: IT Services
+
+        Candidate Skill: "Mortgage Lending, Financial Analysis, Risk Management, Loan Processing"
+        Category: Banking
+
+        Candidate Skill: "Underwriting, Claims Processing, Actuarial Science"
+        Category: Insurance
+
+        Candidate Skill: "Nursing, Patient Care, Medical Records, Pharmacy Operations"
+        Category: Healthcare
+
+        Candidate Skill: "Tour Operations, Hotel Management, Event Planning, Ticketing"
+        Category: Travel
+
+        Candidate Skill: "Property Management, Real Estate Sales, Market Analysis, Leasing"
+        Category: Real Estate
+
+        Candidate Skill: "Machine Learning, Python, R, SQL, Data Visualization"
+        Category:
+        
+2025-07-27 20:16:58,494 - DEBUG - [server.py:226] - LLM raw response for 20: 'Software Development
+'
+2025-07-27 20:16:58,495 - DEBUG - [server.py:227] - Parsed AI classification for 20: 'Software Development'
+2025-07-27 20:16:58,495 - INFO - [server.py:241] - Candidate 20 (Skill: 'Machine Learning, Python, R, SQL, Data Visualization') classified as 'Software Development'.
+2025-07-27 20:16:58,501 - INFO - [server.py:275] - Finished processing all candidates. Transaction committed.
+2025-07-27 20:16:58,501 - INFO - [server.py:349] - MCP Server: ADK tool 'classify_and_transfer_candidates' executed. Response: {'success': True, 'message': 'Candidate classification and transfer completed.', 'transferred_counts': {'Software Development': 5, 'IT Services': 4, 'Banking': 3, 'Insurance': 2, 'Healthcare': 3, 'Travel': 1, 'Real Estate': 2}}
+2025-07-27 20:16:58,502 - DEBUG - [server.py:668] - Response sent
+2025-07-27 20:22:19,205 - INFO - [server.py:389] - MCP Stdio Server: Run loop finished or client disconnected.
+2025-07-27 20:22:19,205 - INFO - [server.py:401] - MCP Server (stdio) process exiting.
